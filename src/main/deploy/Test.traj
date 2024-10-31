@@ -1,0 +1,28 @@
+{
+ "name":"Test",
+ "version":"v2025.0.0",
+ "snapshot":{
+  "waypoints":[],
+  "constraints":[],
+  "targetDt":0.1
+ },
+ "params":{
+  "waypoints":[
+    {"x":{"exp":"0.4355599880218506 m", "val":0.4355599880218506}, "y":{"exp":"2.0587377548217773 m", "val":2.0587377548217773}, "heading":{"exp":"0 deg", "val":0.0}, "intervals":40, "split":false, "fixTranslation":true, "fixHeading":true, "overrideIntervals":false},
+    {"x":{"exp":"5.366740703582764 m", "val":5.366740703582764}, "y":{"exp":"2.00026535987854 m", "val":2.00026535987854}, "heading":{"exp":"0 deg", "val":0.0}, "intervals":40, "split":false, "fixTranslation":true, "fixHeading":true, "overrideIntervals":false}],
+  "constraints":[
+    {"from":"first", "to":null, "data":{"type":"StopPoint", "props":{}}, "enabled":true},
+    {"from":"last", "to":null, "data":{"type":"StopPoint", "props":{}}, "enabled":true},
+    {"from":"first", "to":"last", "data":{"type":"KeepInRectangle", "props":{"x":{"exp":"0 m", "val":0.0}, "y":{"exp":"0 m", "val":0.0}, "w":{"exp":"16.54 m", "val":16.54}, "h":{"exp":"8.21 m", "val":8.21}}}, "enabled":true}],
+  "targetDt":{
+   "exp":"0.1 s",
+   "val":0.1
+  }
+ },
+ "trajectory":{
+  "waypoints":[],
+  "samples":[],
+  "splits":[]
+ },
+ "events":[]
+}
