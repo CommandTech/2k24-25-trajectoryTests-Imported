@@ -13,6 +13,8 @@ import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
 
 
+import edu.wpi.first.wpilibj2.command.WaitCommand;
+
 public class RobotContainer {
   private double MaxSpeed = TunerConstants.kSpeedAt12VoltsMps; // kSpeedAt12VoltsMps desired top speed
   private double MaxAngularRate = 1.5 * Math.PI; // 3/4 of a rotation per second max angular velocity
@@ -50,6 +52,7 @@ public class RobotContainer {
   }
 
   public RobotContainer() {
+    autoChooser.addOption("None", new WaitCommand(15));
     configureBindings();
   }
 
