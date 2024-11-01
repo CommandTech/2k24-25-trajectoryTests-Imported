@@ -5,21 +5,22 @@
 package frc.robot;
 
 import com.ctre.phoenix6.swerve.SwerveRequest;
+import com.pathplanner.lib.auto.AutoBuilder;
+
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
 
 
-import edu.wpi.first.wpilibj2.command.WaitCommand;
-
 public class RobotContainer {
   private double MaxSpeed = TunerConstants.kSpeedAt12VoltsMps; // kSpeedAt12VoltsMps desired top speed
   private double MaxAngularRate = 1.5 * Math.PI; // 3/4 of a rotation per second max angular velocity
 
-  private SendableChooser<Command> autoChooser = new SendableChooser<Command>();
+  private final SendableChooser<Command> autoChooser;
   /* Setting up bindings for necessary control of the swerve drive platform */
   private final CommandXboxController joystick = new CommandXboxController(0); // My joystick
   private final CommandSwerveDrivetrain drivetrain = TunerConstants.DriveTrain; // My drivetrain
@@ -32,6 +33,9 @@ public class RobotContainer {
   private final SwerveRequest.PointWheelsAt point = new SwerveRequest.PointWheelsAt();
 
   private final Telemetry logger = new Telemetry(MaxSpeed);
+  
+  
+  boolean isCompetition = true;
 
   private void configureBindings() {
     drivetrain.setDefaultCommand( // Drivetrain will execute this command periodically
@@ -52,7 +56,9 @@ public class RobotContainer {
   }
 
   public RobotContainer() {
-    autoChooser.addOption("None", new WaitCommand(15));
+    autoChooser = AutoBuilder.buildAutoChooser("None");
+
+    SmartDashboard.putData("Auto Mode", autoChooser);
     configureBindings();
   }
 
